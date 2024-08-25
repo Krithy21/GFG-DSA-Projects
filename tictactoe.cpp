@@ -89,71 +89,7 @@ public:
     void makeMove(Board &board);
     int minimax(Board &board, int depth, bool isMaximizing);
 };
-/*
-void ComputerPlayer::makeMove(Board &board) {
-    int bestScore = -1000;
-    int bestMoveRow = -1;
-    int bestMoveCol = -1;
 
-    // First, check if the computer can win in the next move
-    for (int i = 0; i < 3; ++i) {
-        for (int j = 0; j < 3; ++j) {
-            if (board.grid[i][j] == ' ') {
-                board.grid[i][j] = 'O';
-
-                if (board.checkWin('O')) {
-                    board.grid[i][j] = ' ';
-                    board.makeMove('O', i, j); // Make the winning move
-                    return;
-                }
-
-                board.grid[i][j] = ' ';
-            }
-        }
-    }
-
-    // Next, check if the user can win in the next move and block it
-    for (int i = 0; i < 3; ++i) {
-        for (int j = 0; j < 3; ++j) {
-            if (board.grid[i][j] == ' ') {
-                board.grid[i][j] = 'X';
-
-                if (board.checkWin('X')) {
-                    board.grid[i][j] = 'O'; // Block the user's winning move
-                    return;
-                }
-
-                board.grid[i][j] = ' ';
-            }
-        }
-    }
-
-    // If no winning moves are found, use the minimax algorithm
-    for (int i = 0; i < 3; ++i) {
-        for (int j = 0; j < 3; ++j) {
-            if (board.grid[i][j] == ' ') {
-                board.grid[i][j] = 'O';
-                int score = minimax(board, 0, false);
-                board.grid[i][j] = ' ';
-
-                if (score > bestScore) {
-                    bestScore = score;
-                    bestMoveRow = i;
-                    bestMoveCol = j;
-                }
-            }
-        }
-    }
-
-    if (bestMoveRow != -1 && bestMoveCol != -1) {
-        board.makeMove('O', bestMoveRow, bestMoveCol);
-    }
-//}
-//
-//
-//// ... Rest of the code ...
-// ... Rest of the code ...
-*/
 void ComputerPlayer::makeMove(Board &board) {
     int bestScore = -1000;
     int bestMoveRow = -1;
